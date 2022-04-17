@@ -105,3 +105,6 @@ dist
 
 # JetBrains IDEA files
 .idea/
+
+# LowDB Database
+db.json
