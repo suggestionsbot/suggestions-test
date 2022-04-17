@@ -7,8 +7,6 @@ const { manageSuggestionOptions } = require('../components/suggestionActions');
  * @param {ButtonInteraction} interaction - The interaction being handled.
  */
 module.exports = async (client, interaction) => {
-  console.log('Button interaction received!');
-
   switch (interaction.customId) {
     case 'upvote': {
       await interaction.reply({
@@ -30,14 +28,6 @@ module.exports = async (client, interaction) => {
       await interaction.reply({
         content: 'Now managing the suggestion!',
         components: [manageSuggestionOptions],
-        ephemeral: true,
-      });
-
-      return;
-    }
-    default: {
-      await interaction.reply({
-        content: `A button interaction was received, but I don't know what to do with it!`,
         ephemeral: true,
       });
 
