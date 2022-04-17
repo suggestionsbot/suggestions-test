@@ -1,8 +1,10 @@
-const { Client, Interaction, MessageEmbed } = require('discord.js');
+const { Client, Interaction } = require('discord.js');
 const { Modal } = require('discord-modals');
+const crypto = require('crypto');
 
-const { devChannelId, guildId, colors } = require('../config.json');
+const { devChannelId, guildId } = require('../config.json');
 const { suggestionActionRow } = require('../components/suggestionActions');
+const { mainEmbed } = require('../components/suggestionEmbeds');
 
 /**
  *This function is used to create a new suggestion..
@@ -10,14 +12,16 @@ const { suggestionActionRow } = require('../components/suggestionActions');
  * @param {Interaction|Modal} interaction
  */
 module.exports = async (client, interaction) => {
-  let suggestionName, suggestionDescription;
+  const id = crypto.randomBytes(20).toString('hex').slice(33, 40);
+
+  let suggestionTitle, suggestionDescription;
   if (interaction.type === 'MODAL_SUBMIT') {
-    suggestionName = interaction.getTextInputValue('suggestion-name-input');
+    suggestionTitle = interaction.getTextInputValue('suggestion-name-input');
     suggestionDescription = interaction.getTextInputValue(
       'suggestion-description-input',
     );
   } else {
-    suggestionName = interaction.options.getString('name');
+    suggestionTitle = interaction.options.getString('name');
     suggestionDescription = interaction.options.getString('description');
   }
 
@@ -26,26 +30,17 @@ module.exports = async (client, interaction) => {
     .channels.cache.get(devChannelId);
 
   const thread = await channel.threads.create({
-    name: suggestionName,
+    name: suggestionTitle,
   });
 
   await thread.members.add(interaction.user.id);
 
-  const embed = new MessageEmbed()
-    .setDescription(
-      `
-          **Submitter**
-          ${interaction.user.toString()}
-          
-          **Suggestion**
-          ${suggestionDescription}
-        `,
-    )
-    .setColor(colors.main)
-    .setThumbnail(interaction.member.displayAvatarURL({ dynamic: true }))
-    .setFooter({
-      text: `User ID: ${interaction.user.id} | sID: abc1234`,
-    });
+  const embed = mainEmbed({
+    author: interaction.member,
+    title: suggestionTitle,
+    description: suggestionDescription,
+    sId: id,
+  });
 
   await thread
     .send({
