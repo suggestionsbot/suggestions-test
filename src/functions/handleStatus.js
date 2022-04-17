@@ -10,17 +10,17 @@ module.exports = async (client, interaction) => {
   console.log('Button interaction received!');
 
   switch (interaction.customId) {
-    case 'approve': {
+    case 'upvote': {
       await interaction.reply({
-        content: 'The suggestion has been approved!',
+        content: 'You have upvoted this suggestion!',
         ephemeral: true,
       });
 
       return;
     }
-    case 'reject': {
+    case 'downvote': {
       await interaction.reply({
-        content: 'The suggestion has been rejected!',
+        content: 'You have downvoted this suggestion!',
         ephemeral: true,
       });
 
