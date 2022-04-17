@@ -1,4 +1,5 @@
 const { Client, ButtonInteraction } = require('discord.js');
+const { manageSuggestionOptions } = require('../components/suggestionActions');
 
 /**
  *This function is used to handle a suggestion's status.
@@ -25,14 +26,12 @@ module.exports = async (client, interaction) => {
 
       return;
     }
-    case 'delete': {
-      setTimeout(async () => {
-        await client.channels.cache.get(interaction.channelId).delete();
-      }, 5000);
-
-      await interaction.reply(
-        "The suggestion and it's thread will be deleted in **5 seconds**!",
-      );
+    case 'manage': {
+      await interaction.reply({
+        content: 'Now managing the suggestion!',
+        components: [manageSuggestionOptions],
+        ephemeral: true,
+      });
 
       return;
     }

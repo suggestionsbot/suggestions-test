@@ -7,6 +7,7 @@ const discordModals = require('discord-modals');
 const handleStatus = require('./functions/handleStatus');
 const walkDirectory = require('./functions/walkDirectory');
 const handleSuggestionModal = require('./functions/handleSuggestionModal');
+const handleSuggestionSelectMenu = require('./functions/handleSuggestionSelectMenu');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 discordModals(client);
@@ -27,6 +28,8 @@ client.once('ready', () => {
 
 client.on('interactionCreate', async (interaction) => {
   if (interaction.isButton()) return handleStatus(client, interaction);
+  if (interaction.isSelectMenu())
+    return handleSuggestionSelectMenu(client, interaction);
 
   const command = client.commands.get(interaction.commandName);
   if (!command) return;
