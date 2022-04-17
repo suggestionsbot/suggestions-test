@@ -27,7 +27,6 @@ client.once('ready', () => {
 
 client.on('interactionCreate', async (interaction) => {
   if (interaction.isButton()) return handleStatus(client, interaction);
-  // if (!interaction.isCommand()) return;
 
   const command = client.commands.get(interaction.commandName);
   if (!command) return;

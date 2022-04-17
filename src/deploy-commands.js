@@ -2,9 +2,7 @@ require('dotenv').config();
 
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const fs = require('fs');
 const path = require('path');
-const url = require('url');
 
 const { clientId, guildId } = require('./config.json');
 const walkDirectory = require('./functions/walkDirectory');
