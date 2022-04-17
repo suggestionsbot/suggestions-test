@@ -22,6 +22,19 @@ const suggestionActionRow = new MessageActionRow().addComponents(
     .setEmoji('⚙️'),
 );
 
+const suggestionDeleteRow = new MessageActionRow().addComponents(
+  new MessageButton()
+    .setCustomId('confirm-delete')
+    .setLabel('Confirm')
+    .setStyle('DANGER')
+    .setEmoji('🗑️'),
+  new MessageButton()
+    .setCustomId('cancel-delete')
+    .setLabel('Cancel')
+    .setStyle('SECONDARY')
+    .setEmoji('❌'),
+);
+
 const manageSuggestionOptions = new MessageActionRow().addComponents(
   new MessageSelectMenu()
     .setCustomId('manage-suggestion-options')
@@ -47,5 +60,6 @@ const manageSuggestionOptions = new MessageActionRow().addComponents(
 
 module.exports = {
   suggestionActionRow,
+  suggestionDeleteRow,
   manageSuggestionOptions,
 };
