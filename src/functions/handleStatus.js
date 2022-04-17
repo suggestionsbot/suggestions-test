@@ -3,8 +3,8 @@ const { manageSuggestionOptions } = require('../components/suggestionActions');
 
 /**
  *This function is used to handle a suggestion's status.
- * @param {Client} client - The client..
- * @param {ButtonInteraction} interaction
+ * @param {Client} client - The client instance.
+ * @param {ButtonInteraction} interaction - The interaction being handled.
  */
 module.exports = async (client, interaction) => {
   console.log('Button interaction received!');
