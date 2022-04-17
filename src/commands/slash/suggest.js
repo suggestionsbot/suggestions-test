@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
-const createSuggestion = require('../../functions/createSuggestion');
+const createSuggestion = require('../../functions/suggestions/createSuggestion');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -8,8 +8,8 @@ module.exports = {
     .setDescription('Create a new suggestion!')
     .addStringOption((option) =>
       option
-        .setName('name')
-        .setDescription('The name of the suggestion.')
+        .setName('title')
+        .setDescription('The title of the suggestion.')
         .setRequired(true),
     )
     .addStringOption((option) =>
