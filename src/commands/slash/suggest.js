@@ -10,13 +10,13 @@ module.exports = {
       option
         .setName('name')
         .setDescription('The name of the suggestion.')
-        .setRequired(false),
+        .setRequired(true),
     )
     .addStringOption((option) =>
       option
         .setName('description')
         .setDescription('The description of the suggestion.')
-        .setRequired(false),
+        .setRequired(true),
     ),
   async execute(client, interaction) {
     const { thread } = await createSuggestion(client, interaction);
