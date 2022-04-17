@@ -1,6 +1,8 @@
 const { Client, SelectMenuInteraction, CacheType } = require('discord.js');
 
-const { suggestionDeleteRow } = require('../components/suggestionActions');
+const {
+  suggestionDeleteRow,
+} = require('../../../components/suggestionActions');
 
 /**
  * This function handles the selection of various suggestion management action.

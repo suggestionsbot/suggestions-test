@@ -1,4 +1,4 @@
-const createSuggestion = require('./createSuggestion');
+const createSuggestion = require('../../createSuggestion');
 
 module.exports = async (client, modal) => {
   const { thread } = await createSuggestion(client, modal);

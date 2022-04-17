@@ -1,7 +1,6 @@
 const { Interaction, SelectMenuInteraction, CacheType } = require('discord.js');
 
 const handleSuggestionSelectMenu = require('./handleSuggestionSelectMenu');
-const handleSuggestionDeleteMenu = require('./handleSuggestionDeleteButtons');
 
 /**
  * The handle function for select menus.
@@ -10,5 +9,4 @@ const handleSuggestionDeleteMenu = require('./handleSuggestionDeleteButtons');
  */
 module.exports = (client, interaction) => {
   handleSuggestionSelectMenu(client, interaction);
-  handleSuggestionDeleteMenu(client, interaction);
 };

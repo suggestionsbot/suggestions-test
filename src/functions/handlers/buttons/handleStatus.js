@@ -1,5 +1,7 @@
 const { Client, ButtonInteraction } = require('discord.js');
-const { manageSuggestionOptions } = require('../components/suggestionActions');
+const {
+  manageSuggestionOptions,
+} = require('../../../components/suggestionActions');
 
 /**
  *This function is used to handle a suggestion's status.

@@ -5,9 +5,9 @@ const path = require('path');
 const discordModals = require('discord-modals');
 
 const walkDirectory = require('./functions/walkDirectory');
-const handleSuggestionModal = require('./functions/handleSuggestionModal');
-const handleSelectMenu = require('./functions/handleSelectMenu');
-const handleButton = require('./functions/handleButton');
+const handleSuggestionModal = require('./functions/handlers/modals/handleSuggestionModal');
+const handleSelectMenu = require('./functions/handlers/menus/handleSelectMenu');
+const handleButton = require('./functions/button/handleButton');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 discordModals(client);
