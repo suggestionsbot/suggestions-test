@@ -2,7 +2,7 @@ const { Client, Interaction, MessageEmbed } = require('discord.js');
 const { Modal } = require('discord-modals');
 
 const { devChannelId, guildId, colors } = require('../config.json');
-const suggestionActionRow = require('../components/suggestionActionRow');
+const { suggestionActionRow } = require('../components/suggestionActions');
 
 /**
  *This function is used to create a new suggestion..
