@@ -43,7 +43,7 @@ module.exports = async (client, interaction) => {
     sId: id,
   });
 
-  await thread
+  const message = await thread
     .send({
       embeds: [embed],
       components: [suggestionActionRow],
@@ -58,6 +58,7 @@ module.exports = async (client, interaction) => {
     description: suggestionDescription,
     author: interaction.member.id,
     thread: thread.id,
+    message: message.id,
   });
 
   return { thread };
