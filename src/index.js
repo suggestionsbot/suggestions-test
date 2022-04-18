@@ -5,7 +5,7 @@ const path = require('path');
 const discordModals = require('discord-modals');
 
 const walkDirectory = require('./functions/walkDirectory');
-const handleSuggestionModal = require('./functions/handlers/modals/handleSuggestionModal');
+const handleModal = require('./functions/handlers/modals/handleModal');
 const handleSelectMenu = require('./functions/handlers/menus/handleSelectMenu');
 const handleButton = require('./functions/handlers/buttons/handleButton');
 
@@ -46,8 +46,7 @@ client.on('interactionCreate', async (interaction) => {
 
 client.on('modalSubmit', async (modal) => {
   try {
-    if (modal.customId === 'suggestion-modal')
-      await handleSuggestionModal(client, modal);
+    await handleModal(client, modal);
   } catch (e) {
     console.error(e);
     await modal.reply({

@@ -2,7 +2,7 @@ const { ContextMenuCommandBuilder } = require('@discordjs/builders');
 const { ApplicationCommandType } = require('discord-api-types/v9');
 const { showModal } = require('discord-modals');
 
-const suggestionModal = require('../../components/suggestionModal');
+const { suggestionModal } = require('../../components/suggestionModals');
 
 module.exports = {
   data: new ContextMenuCommandBuilder()
