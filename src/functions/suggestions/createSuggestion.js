@@ -43,13 +43,15 @@ module.exports = async (client, interaction) => {
     sId: id,
   });
 
-  const message = await thread
+  let messageId;
+  await thread
     .send({
       embeds: [embed],
       components: [suggestionActionRow],
     })
     .then((m) => {
       if (m.pinnable) m.pin();
+      messageId = m.id;
     });
 
   writeSuggestionToDb({
@@ -58,7 +60,7 @@ module.exports = async (client, interaction) => {
     description: suggestionDescription,
     author: interaction.member.id,
     thread: thread.id,
-    message: message.id,
+    message: messageId,
   });
 
   return { thread };
