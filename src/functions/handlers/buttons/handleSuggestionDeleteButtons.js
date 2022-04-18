@@ -1,6 +1,7 @@
 const { Client, ButtonInteraction, CacheType } = require('discord.js');
 
 const deleteSuggestion = require('../../suggestions/deleteSuggestion');
+
 /**
  * This function handles the actions of deleting a suggestion..
  * @param {Client} client - The client instance.
@@ -25,6 +26,8 @@ module.exports = async (client, interaction) => {
         components: [],
         ephemeral: true,
       });
+
+      return;
     }
   }
 };
