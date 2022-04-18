@@ -2,6 +2,7 @@ const { Client, SelectMenuInteraction, CacheType } = require('discord.js');
 
 const {
   suggestionDeleteRow,
+  suggestionEditRow,
 } = require('../../../components/suggestionActions');
 
 /**
@@ -26,6 +27,16 @@ module.exports = async (client, interaction) => {
       await interaction.update({
         content: 'You have rejected this suggestion!',
         components: [],
+        ephemeral: true,
+      });
+
+      return;
+    }
+    case 'edit-option': {
+      await interaction.update({
+        content:
+          'Please confirm if you wish to proceed to edit this suggestion.',
+        components: [suggestionEditRow],
         ephemeral: true,
       });
 

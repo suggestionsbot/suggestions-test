@@ -1,6 +1,7 @@
 const { ButtonInteraction, CacheType } = require('discord.js');
 
 const handleSuggestionDeleteButtons = require('./handleSuggestionDeleteButtons');
+const handleSuggestionEditButtons = require('./handleSuggestionEditButtons');
 const handleStatus = require('./handleStatus');
 
 /**
@@ -10,5 +11,6 @@ const handleStatus = require('./handleStatus');
  */
 module.exports = (client, interaction) => {
   handleSuggestionDeleteButtons(client, interaction);
+  handleSuggestionEditButtons(client, interaction);
   handleStatus(client, interaction);
 };

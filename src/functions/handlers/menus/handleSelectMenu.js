@@ -1,4 +1,9 @@
-const { Interaction, SelectMenuInteraction, CacheType } = require('discord.js');
+const {
+  Client,
+  Interaction,
+  SelectMenuInteraction,
+  CacheType,
+} = require('discord.js');
 
 const handleSuggestionSelectMenu = require('./handleSuggestionSelectMenu');
 
